@@ -1,0 +1,21 @@
+*/package-lock.json
+*/node_modules
+
+client/dist
+
+*.env
+
+# Hardhat files
+auction/cache
+auction/artifacts
+
+# TypeChain files
+auction/typechain
+auction/typechain-types
+
+# solidity-coverage files
+auction/coverage
+auction/coverage.json
+
+# Hardhat Ignition default folder for deployments against a local node
+auction/ignition/deployments/chain-31337
