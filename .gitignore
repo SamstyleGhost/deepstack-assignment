@@ -7,7 +7,8 @@ client/dist
 
 # Hardhat files
 auction/cache
-auction/artifacts
+auction/contracts/artifacts
+auction/contracts/.states
 
 # TypeChain files
 auction/typechain
