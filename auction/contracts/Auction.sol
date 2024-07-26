@@ -25,8 +25,10 @@ contract Auction {
     function createAuction(string memory item, uint startingPrice, uint durationBlocks) public {
 
         // require(startBlock > block.number);
+        uint random = setRandom(durationBlocks);
 
-        uint endBlock = block.number + durationBlocks;
+        // so that auctions run for at least half the length of the duration provided
+        uint endBlock = block.number + (durationBlocks / 2) + random;
 
         Auc storage auc = auctionList[auctionCount];
 
@@ -35,6 +37,7 @@ contract Auction {
         auc.item = item;
         auc.startingPrice = startingPrice;
         auc.startBlock = block.number;
+        auc.endBlock = endBlock;
         auc.highestBid = 0;
 
         emit AuctionCreated(auctionCount, msg.sender, item, startingPrice, block.number, endBlock);
@@ -91,6 +94,11 @@ contract Auction {
             auc.highestBidder,
             auc.highestBid
         );
+    }
+
+    function setRandom(uint duration) private view returns (uint) {
+        uint random = (uint(keccak256(abi.encodePacked(block.number,msg.sender,duration))) % duration) / 2;
+        return random;
     }
 
     receive() external payable {}
