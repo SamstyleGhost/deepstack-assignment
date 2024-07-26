@@ -16,11 +16,15 @@ contract Auction {
     }
 
     mapping(uint => Auc) public auctionList;
-    uint public auctionCount = 0;
+    uint public auctionCount = 17;
 
     event AuctionCreated(uint auctionId, address owner, string item, uint startingPrice, uint startBlock, uint endBlock);
     event NewBid(uint auctionId, address bidder, uint bid);
     event AuctionEnded(uint auctionId, address winner, uint winningBid);
+
+    function testAuction() public view returns (uint) {
+        return auctionCount;
+    }
 
     function createAuction(string memory item, uint startingPrice, uint durationBlocks) public {
 
