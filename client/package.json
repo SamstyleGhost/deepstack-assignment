@@ -12,7 +12,6 @@
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "ethereum-block-by-date": "^1.4.9",
-    "ethers": "^6.13.1",
     "postcss": "^8.4.40",
     "solid-devtools": "^0.29.2",
     "tailwindcss": "^3.4.7",
@@ -21,6 +20,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.14.1",
+    "ethers": "5.7",
     "solid-js": "^1.8.11"
   }
 }
